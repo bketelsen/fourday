@@ -1,0 +1,30 @@
+Database Development with sqlx
+
+Brian Ketelsen
+me@brianketelsen.com
+@bketelsen
+
+* Database Development with sqlx
+
+* Prerequisites
+
+Go installed and configured
+Your favorite editor configured for Go use
+Some knowledge of terminal
+
+* Install sqlx
+
+From a command prompt install sqlx:
+
+$ go get github.com/jmoiron/sqlx
+
+* Project Source
+
+$ go get github.com/bketelsen/sqlx
+
+Start the Docker Instance of mysql
+
+$ cd $GOPATH/src/github.com/bketelsen/sqlx
+
+$ ./run.sh
+

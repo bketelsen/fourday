@@ -1,0 +1,284 @@
+Go Tooling
+
+Brian Ketelsen
+me@brianketelsen.com
+@bketelsen
+
+Cory LaNou
+@corylanou
+
+* Better Code Quality through Tooling
+
+Code quality is a hard thing.  Make it easy by using amazing tools that tell
+you when you've done something that is usually considered a bad pracitice or
+outright bug.
+
+* go fmt
+
+Gofmt formats Go programs. It uses tabs (width = 8) for indentation and blanks
+for alignment.
+
+Most editors have a plugin for this and you likely don't have to worry about it.
+
+	go fmt ./...
+
+.link https://golang.org/cmd/gofmt/
+
+* go vet
+
+Vet examines Go source code and reports suspicious constructs, such as Printf
+calls whose arguments do not align with the format string. Vet uses heuristics
+that do not guarantee all reports are genuine problems, but it can find errors
+not caught by the compilers.
+
+	go vet ./...
+
+.link https://golang.org/cmd/vet/
+
+* golint
+
+Golint differs from gofmt. Gofmt reformats Go source code, whereas golint
+prints out style mistakes.
+
+While you should strive to satisfy Go Lint, it is opinionated, and not
+everything is something you have to correct.
+
+	go get -u github.com/golang/lint/golint
+	golint ./...
+
+.link https://github.com/golang/lint
+
+* aligncheck, structcheck, and varcheck
+
+- aligncheck finds inefficiently packed structs.
+- structcheck finds unused struct fields
+- varcheck finds unused global variables and constants.
+
+	go get -u github.com/opennota/check/cmd/aligncheck
+	go get -u github.com/opennota/check/cmd/structcheck
+	go get -u github.com/opennota/check/cmd/varcheck
+
+.link https://github.com/opennota/check
+
+Known limitations: structcheck doesn't handle embedded structs yet.
+
+* deadcode
+
+Anyone want to guess what this tool does...
+
+	go get -u github.com/tsenart/deadcode
+
+.link https://github.com/tsenart/deadcode
+
+* dupl
+
+dupl is a tool written in Go for finding code clones. So far it can find clones
+only in the Go source files. The method uses suffix tree for serialized ASTs.
+It ignores values of AST nodes. It just operates with their types (e.g. if a ==
+13 {} and if x == 100 {} are considered the same provided it exceeds the
+minimal token sequence size).
+
+	go get -u github.com/mibk/dupl
+
+Examples:
+
+  dupl -t 100
+        Search clones in the current directory of size at least
+        100 tokens.
+  dupl $(find app/ -name '*_test.go')
+        Search for clones in tests in the app directory.
+  find app/ -name '*_test.go' |dupl -files
+        The same as above.
+
+.link http://github.com/mibk/dupl
+
+* errcheck
+
+errcheck is a program for checking for unchecked errors in go programs.
+
+	go get -u github.com/kisielk/errcheck
+	errcheck ./...
+
+.link http://github.com/kisielk/errcheck
+
+* gas
+
+Inspects source code for security problems by scanning the Go AST.
+
+	go get -u github.com/HewlettPackard/gas
+
+	# Run a specific set of rules
+	$ gas -include=G101,G203,G401 ./...
+
+	# Run everything except for rule G303
+	$ gas -exclude=G303 ./...
+
+.link http://github.com/HewlettPackard/gas
+
+* goconst
+
+Find repeated strings that could be replaced by a constant.
+
+	go get -u github.com/jgautheron/goconst/cmd/goconst
+	goconst ./...
+
+.link http://github.com/jgautheron/goconst
+
+* gocyclo
+
+Gocyclo calculates cyclomatic complexities of functions in Go source code.
+
+The cyclomatic complexity of a function is calculated according to the following rules:
+
+	1 is the base complexity of a function
+	+1 for each 'if', 'for', 'case', '&&' or '||'
+
+Install: 
+
+	go get -u github.com/fzipp/gocyclo
+
+Examples:
+
+	gocyclo .
+	gocyclo main.go
+	gocyclo -top 10 src/
+	gocyclo -over 25 docker
+	gocyclo -avg .
+
+.link http://github.com/alecthomas/gocyclo
+
+* goimports
+
+Command goimports updates your Go import lines, adding missing ones and removing unreferenced ones.
+
+Most editors have this built in.  Highly recommended to keep you sane.
+
+.link http://golang.org/x/tools/cmd/goimports
+
+* gosimple
+
+Gosimple is a linter for Go source code that specialises on simplifying code.
+
+	go get -u honnef.co/go/simple/cmd/gosimple
+
+Usage
+
+Invoke gosimple with one or more filenames, a directory, or a package named by
+its import path. Gosimple uses the same import path syntax as the go command
+and therefore also supports relative import paths like ./.... Additionally the ...
+ wildcard can be used as suffix on relative and absolute file paths to
+recurse into them.
+
+The output of this tool is a list of suggestions in Vim quickfix format, which
+is accepted by lots of different editors.
+
+.link https://github.com/dominikh/go-simple
+
+* ineffassign
+
+Detect ineffectual assignments in Go code.
+
+	go get -u github.com/gordonklaus/ineffassign
+	ineffassign ./..
+
+.link http://github.com/gordonklaus/ineffassign
+
+* interfacer
+
+A linter that suggests interface types. In other words, it warns about the
+usage of types that are more specific than necessary.
+
+	go get -u github.com/mvdan/interfacer/cmd/interfacer
+	interfacer ./...
+
+.link http://github.com/mvdan/interfacer
+
+* lll
+
+Line length linter, used to enforce line length in files. Support for only checking go files.
+
+	go get -u github.com/walle/lll/...
+
+Usage
+
+	usage: lll [--maxlength MAXLENGTH] [--tabwidth TABWIDTH] [--goonly] [--skiplist SKIPLIST] [--vendor] [--files] [--exclude EXCLUDE] [INPUT [INPUT ...]]
+
+.link http://github.com/walle/lll
+
+* misspell
+
+Correct commonly misspelled English words... quickly.
+
+	go get -u github.com/client9/misspell/cmd/misspell
+	find . -type f | xargs misspell
+
+.link http://github.com/client9/misspell
+
+* staticcheck
+
+Staticcheck is go vet on steroids, applying a ton of static analysis checks you
+might be used to from tools like ReSharper for C#.
+
+	go get -u honnef.co/go/staticcheck/cmd/staticcheck
+	staticcheck ./...
+
+.link https://github.com/dominikh/go-staticcheck
+
+* unconvert
+
+The unconvert program analyzes Go packages to identify unnecessary type
+conversions; i.e., expressions T(x) where x already has type T.
+
+	go get -u github.com/mdempsky/unconvert
+
+Usage:
+
+    $ unconvert -v bytes fmt
+    GOROOT/src/bytes/reader.go:117:14: unnecessary conversion
+                    abs = int64(r.i) + offset
+                               ^
+    GOROOT/src/fmt/print.go:411:21: unnecessary conversion
+            p.fmt.integer(int64(v), 16, unsigned, udigits)
+
+
+.link http://github.com/mdempsky/unconvert
+
+* unused
+
+unused checks Go code for unused constants, variables, functions and types.
+
+	go get -u honnef.co/go/unused/cmd/unused
+	unused ./...
+
+.link https://github.com/dominikh/go-unused
+
+* Wow, that's a lot to remember...
+
+* Go Meta Linter to the rescue!
+
+Runs all of these commands against your code!
+
+	go get -u github.com/alecthomas/gometalinter
+	gometalinter.v1 --install
+	gometalinter.v1 ./...
+
+.link https://github.com/alecthomas/gometalinter
+
+* Enforcement through git hooks
+
+Place this script in `<reponame>/.git/hooks/pre-commit`
+
+	fmtcount=`git ls-files | grep '.go$' | xargs gofmt -l 2>&1 | wc -l`
+	if [ $fmtcount -gt 0 ]; then
+	    echo "Some files aren't formatted, please run 'go fmt ./...' to format your source code before committing"
+	    exit 1
+	fi
+
+	vetcount=`go tool vet ./ 2>&1  | wc -l`
+	if [ $vetcount -gt 0 ]; then
+	    echo "Some files aren't passing vet heuristics, please run 'go vet ./...' to see the errors it flags and correct your source code before committing"
+	    exit 1
+	fi
+	exit 0
+
+

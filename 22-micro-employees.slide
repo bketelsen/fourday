@@ -1,0 +1,114 @@
+Micro Employees
+
+Brian Ketelsen
+me@brianketelsen.com
+@bketelsen
+
+* Micro Employees
+
+* Your first service
+
+Employee Service
+
+For our first micro service, let's put together the everything from the previous lectures on Go and sqlx and build an Employee service.
+
+We'll keep it simple and only access the employees table in this service.
+
+* Requirements
+
+Our employee service should look like a real-world microservice. Its primary concern will be providing access to the employee information in the database.
+
+* Get an employee
+
+Plan of Action
+
+We'll start by creating our proto definition. The proto file defines the RPC methods and the messages for each RPC request and response.
+
+* employees.proto
+
+Proto Definition
+
+If we look at the proto definition from the example service in Go micro we have a pretty good starting point for our own service definition. Let's review it again:
+
+syntax = "proto3";
+service Greeter {
+rpc Hello(HelloRequest) returns (HelloResponse) {}
+}
+message HelloRequest {
+string name = 1;
+}
+message HelloResponse {
+string greeting = 2;
+}
+
+* Service
+
+The proto file defines one Service called "Greeter".
+
+The Greeter service defines one RPC method called Hello.
+
+The Hello RPC method accepts a HelloRequest and returns a HelloResponse.
+
+The HelloRequest and HelloResponse messages are defined at the bottom of the file. Each of them has one field which is a string.
+
+* Employee Proto
+
+Let's use this example to build our proto definition for the employee microservice.
+
+Here's what we can deduce from our requirements:
+
+syntax = "proto3";
+service Employees {
+    rpc Get(GetRequest) returns (GetResponse) {}
+}
+
+* Creating Common Messages
+
+Let's start by creating a message called Employee that matches the table in the database.
+
+
+message Employee {
+	int64 emp_no = 1;        
+        string first_name = 2;
+        string last_name = 3;
+        enum Gender {
+	        MALE = 0;
+                FEMALE = 1;
+        }
+        int64 birth_date= 4;    
+        int64 hire_date= 5;    
+}
+
+* Request/Response Messages
+
+Now it will be easy to create Request/Response messages for each of RPC calls we've defined.
+
+message GetRequest {
+	int64 emp_no = 1;
+}
+message GetResponse {
+	Employee employee = 1;
+}
+
+That was pretty easy. Now it's time to use the protoc generator to generate the Go implementation of this service definition.
+
+* Generate Go Code From Proto
+
+Running protoc
+
+We need to run the protoc compiler and tell it that we'll be using the "micro" plugin.
+
+Make sure you've got the micro plugin installed:
+
+$ go get github.com/micro/protobuf/{proto,protoc-gen-go}
+
+protoc -I$GOPATH/src --go_out=plugins=micro:$GOPATH/src $GOPATH/src/github.com/bketelsen/micro-employees/proto/employees.proto
+
+* Exercise
+
+	go get github.com/bketelsen/micro-employees
+
+	Finish the micro service.
+
+- Use the sqlx package to retrieve the employee in the `db` package
+- Modify the handler to call the db package

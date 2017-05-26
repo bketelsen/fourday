@@ -1,0 +1,300 @@
+Microservices in Go
+
+Brian Ketelsen
+me@brianketelsen.com
+@bketelsen
+
+* Microservices in Go
+
+There are several options for building microservice Options in Go:
+
+- go-kit
+- gizmo
+- go-micro
+- Roll Your Own
+
+* Microservices in Go
+
+*Warning: OPINIONS HERE*
+
+* go-kit
+
+go-kit http://gokit.io/
+
+Pros:
+
+Very well designed, well engineered
+Peter Bourgon, Benevolent Dictator
+Components built to be used individually, together, or mixed with other things (not all or nothing)
+
+* go-kit
+
+Cons:
+
+Verbose, too much boilerplate
+highly focused on just the service
+
+* gizmo
+
+gizmo https://github.com/NYTimes/gizmo
+
+Pros:
+
+A little less boilerplate
+Strong team
+
+* gizmo
+
+Cons:
+
+Too loosely organized, little community
+less documentation
+smaller toolkit
+
+* go-micro
+
+go-micro https://micro.mu/
+
+Pros:
+
+Batteries included, swappable
+Opinionated, but adaptable to fit your environment
+Complete toolkit
+Built by Asim Aslam (google, hailo...)
+
+* go-micro
+
+Cons:
+
+Small development team
+
+* DIY
+
+Roll Your Own
+
+Pros:
+
+Who knows your business better than you?
+Get exactly what you need, nothing more or less
+
+* DIY
+
+Cons:
+
+Time, expense
+Steep learning curve - especially if moving to new language in the process
+
+* Honorable Mention
+
+goa https://goa.design/
+
+Pros:
+
+DSL is single source of truth
+code generation takes care of 95% of API
+generates JS client, Go library, DOCUMENTATION, & more
+GREAT for API development
+
+* goa
+
+Cons:
+
+NOT a toolkit or framework - only focuses on the service itself not the ecosystem
+
+.link https://www.youtube.com/watch?v=tCFrgWikEX8&t=3s Tampa Go Meetup Talk
+
+
+* Overview of Micro
+
+* Micro Concepts
+
+There are two layers to the Micro ecosystem.
+
+- go-micro - the library for building microservices in Go
+- micro Platform - a set of microservices written with go-micro that do authentication, monitoring, distributed tracing, dynamic configuration, service discovery, etc
+
+* Micro Features
+
+- Service Discovery - Applications are automatically registered with service discovery so they can locate each other.
+- Load Balancing - Smart client side load balancing is used to balance requests between instances of a service.
+- Synchronous Communication - Request-response is provided as a bidirectional streaming transport layer.
+- Asynchronous Communication - Microservices should promote an event driven architecture. Publish and Subscribe semantics are built in.
+- Message Encoding - Micro services can encode requests in a number of encoding formats and seamlessly decode based on the Content-Type header.
+- RPC Client/Server - The client and server leverage the above features and provide a clean simple interface for building microservices.
+
+* Micro Platform
+
+The micro Platform is a set of services that run on your infrastructure to help you manage a large deployment. It is NOT required to use any of these components to use micro. But you gain the most benefit by using many or all of them.
+
+* Micro Platform
+- auth-srv https://github.com/micro/auth-srv	Authentication and authorization (Oauth2)
+- config-srv https://github.com/micro/config-srv	Dynamic configuration
+- db-srv https://github.com/micro/db-srv	Database proxy
+- discovery-srv https://github.com/micro/discovery-srv	Discovery read cache
+- event-srv https://github.com/micro/event-srv	Event aggregation
+- kv-srv https://github.com/micro/kv-srv	Key-Value service
+- monitor-srv https://github.com/micro/monitor-srv	Monitoring for Status, Stats and Healthchecks
+- router-srv https://github.com/micro/router-srv	Global service load balancing
+- trace-srv https://github.com/micro/trace-srv	Distributed tracing
+
+* Using the Platform From Go
+
+Micro has Go libraries to access all of the services of the platform.
+
+Even better each of these libraries has a Go interface with an opinionated default implementation. But there are plugins available for many of these so that you can use a different implementation or make your own.
+
+* Platform 
+
+- auth https://godoc.org/github.com/micro/go-os/auth	auth-srv	authentication and authorisation for users and services
+- config https://godoc.org/github.com/micro/go-os/config	config-srv	dynamic configuration which is namespaced and versioned
+- db https://godoc.org/github.com/micro/go-os/db	db-srv	distributed database abstraction
+- discovery https://godoc.org/github.com/micro/go-os/discovery		discovery-srv	extends the go-micro registry to add heartbeating, etc
+- event https://godoc.org/github.com/micro/go-os/event	event-srv	platform event publication, subscription and aggregation
+- kv https://godoc.org/github.com/micro/go-os/kv	distributed in-memory 		simply key value layered on memcached, etcd, consul
+
+* Platform 
+- log https://godoc.org/github.com/micro/go-os/log	file	structured logging to stdout, logstash, fluentd, pubsub
+- monitor https://godoc.org/github.com/micro/go-os/monitor	monitor-srv	add custom healthchecks measured with distributed systems in mind 	
+- metrics https://godoc.org/github.com/micro/go-os/metrics	telegraf	instrumentation and collation of counters
+- router https://godoc.org/github.com/micro/go-os/router	router-srv	global circuit breaking, load balancing, A/B testing
+- sync https://godoc.org/github.com/micro/go-os/sync	consul	distributed locking, leadership election, etc
+- trace https://godoc.org/github.com/micro/go-os/trace	trace-srv	distributed tracing of request/response
+
+* Recap
+
+go-micro is a library for building microservices
+
+The micro platform is a suite of microservices to help you manage your platform at scale.
+
+* Hello Micro
+
+First Service in Micro
+
+Micro ships with a few example services. Let's run one and explore the micro environment.
+
+Install the micro command line tool:
+
+$ go get -u github.com/micro/micro
+
+Install the micro go libraries
+
+$ go get -u github.com/micro/go-micro
+
+* Hello Micro 
+
+Now let's take a look:
+
+$ cd $GOPATH/src/github.com/micro/go-micro
+
+Run the example service:
+
+$ go run examples/service/main.go 
+
+Now let's call the service from another terminal:
+
+$ go run examples/service/main.go 
+
+* Protocol Buffers
+
+Google Protocol Buffers
+
+Source https://github.com/google/protobuf
+
+Documentation https://developers.google.com/protocol-buffers/
+
+"Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data  think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages."
+
+* Protocol Buffers
+
+Proto3 Language Guide https://developers.google.com/protocol-buffers/docs/proto3
+
+Benefits of PB
+
+- FAST -- No, really, they're fast. Encoding and decoding is 20 - 100 times faster than xml/json
+- SMALL -- 3 to 10 times smaller encoded message than xml/json
+- Portable - .proto files are inputs for code-generation tool "protoc", which then outputs a language-specific implementation in many supported languages (C,C++,Go,Java,etc...)
+- Numbered fields mean you can add new fields without worrying about backwards compatibility. If the other end doesn't know what field 22 is, it will ignore it, not fail.
+
+* Micro
+
+Micro uses a fork of the official go protobuf generator https://github.com/golang/protobuf to generate micro specific functionality from the proto definitions.
+
+In order to use protocol buffers you need to install protoc from Google.
+
+(This is already done)
+
+Install micro's fork of Go protocol buffer generators with this command:
+
+$ go get github.com/micro/protobuf/{proto,protoc-gen-go}
+
+
+
+* Service Source Code
+	
+	cd $GOPATH/src/github.com/micro/go-micro
+
+- examples/service/proto 
+
+- examples/service/main.go 
+
+* Micro Components
+
+* Registry
+
+The registry provides a service discovery mechanism to resolve names to addresses. It can be backed by consul, etcd, zookeeper, dns, gossip, etc. Services should register using the registry on startup and deregister on shutdown. Services can optionally provide an expiry TTL and reregister on an interval to ensure liveness and that the service is cleaned up if it dies.
+
+Default: consul 
+
+Documentation https://godoc.org/github.com/micro/go-micro/registry
+
+* Selector
+
+The selector is a load balancing abstraction which builds on the registry. It allows services to be "filtered" using filter functions and "selected" using a choice of algorithms such as random, roundrobin, leastconn, etc. The selector is leveraged by the Client when making requests. The client will use the selector rather than the registry as it provides that built in mechanism of load balancing.
+
+Documentation https://godoc.org/github.com/micro/go-micro/selector
+
+* Transport
+
+The transport is the interface for synchronous request/response communication between services. It's akin to the golang net package but provides a higher level abstraction which allows us to switch out communication mechanisms e.g http, rabbitmq, websockets, NATS. The transport also supports bidirectional streaming. This is powerful for client side push to the server.
+
+Default: http
+Documentation https://godoc.org/github.com/micro/go-micro/transport
+
+* Broker
+
+The broker provides an interface to a message broker for asynchronous pub/sub communication. This is one of the fundamental requirements of an event driven architecture and microservices. By default we use an inbox style point to point HTTP system to minimise the number of dependencies required to get started. However there are many message broker implementations available in go-plugins e.g RabbitMQ, NATS, NSQ, Google Cloud Pub Sub.
+
+Default: http
+Documentation https://godoc.org/github.com/micro/go-micro/broker
+
+* Codec
+
+The codec is used for encoding and decoding messages before transporting them across the wire. This could be json, protobuf, bson, msgpack, etc. Where this differs from most other codecs is that we actually support the RPC format here as well. So we have JSON-RPC, PROTO-RPC, BSON-RPC, etc. It separates encoding from the client/server and provides a powerful method for integrating other systems such as gRPC, Vanadium, etc.
+
+Default: protobuf
+Documentation https://godoc.org/github.com/micro/go-micro/codec
+
+* Server
+
+The server is the building block for writing a service. Here you can name your service, register request handlers, add middeware, etc. The service builds on the above packages to provide a unified interface for serving requests. The built in server is an RPC system. In the future there maybe other implementations. The server also allows you to define multiple codecs to serve different encoded messages.
+
+Documentation https://godoc.org/github.com/micro/go-micro/server
+
+* Client
+
+The client provides an interface to make requests to services. Again like the server, it builds on the other packages to provide a unified interface for finding services by name using the registry, load balancing using the selector, making synchronous requests with the transport and asynchronous messaging using the broker.
+
+Documentation https://godoc.org/github.com/micro/go-micro/client
+
+
+* Exercise
+
+Explore go-micro
+
+.link https://github.com/micro/go-micro/tree/master/examples/service
+
+1.  Run the example service
+2.  Install the cli `go get github.com/micro/micro` 
+3.  Run the micro web dashboard `micro web`
+4.  Explore and run the micro example services https://github.com/micro/micro/tree/master/examples using CLI and Web
+5.  Explore the micro cli features

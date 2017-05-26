@@ -1,0 +1,49 @@
+# github.com/bketelsen/gogrep
+./gogrep.go:57: inlining call to os.FileMode.IsRegular
+./gogrep.go:60: inlining call to strings.HasSuffix
+./gogrep.go:28: inlining call to flag.NArg
+./gogrep.go:32: inlining call to flag.Arg
+./gogrep.go:32: inlining call to Arg
+./gogrep.go:33: inlining call to flag.Arg
+./gogrep.go:33: inlining call to Arg
+./gogrep.go:34: inlining call to "golang.org/x/net/context".Background
+./gogrep.go:45: leaking param: ctx
+./gogrep.go:50: func literal escapes to heap
+./gogrep.go:50: func literal escapes to heap
+./gogrep.go:47: make(chan string, 100) escapes to heap
+./gogrep.go:45: leaking param: root
+./gogrep.go:77: func literal escapes to heap
+./gogrep.go:77: func literal escapes to heap
+./gogrep.go:45: leaking param: pattern
+./gogrep.go:74: make(chan string, 100) escapes to heap
+./gogrep.go:93: func literal escapes to heap
+./gogrep.go:93: func literal escapes to heap
+./gogrep.go:53: leaking closure reference root
+./gogrep.go:53: func literal escapes to heap
+./gogrep.go:53: leaking param: info
+./gogrep.go:53: leaking param: path
+./gogrep.go:66: leaking closure reference ctx
+./gogrep.go:66: leaking closure reference ctx
+./gogrep.go:78: leaking closure reference p
+./gogrep.go:78: leaking closure reference p
+./gogrep.go:87: leaking closure reference ctx
+./gogrep.go:87: leaking closure reference ctx
+./gogrep.go:94: leaking closure reference g
+./gogrep.go:53: leaking param: err to result ~r3 level=0
+./gogrep.go:82: search.func2 ([]byte)(pattern) does not escape
+./gogrep.go:20: func literal escapes to heap
+./gogrep.go:20: func literal escapes to heap
+./gogrep.go:34: "golang.org/x/net/context".Context("golang.org/x/net/context".background) escapes to heap
+./gogrep.go:37: err escapes to heap
+./gogrep.go:40: name escapes to heap
+./gogrep.go:42: len(m) escapes to heap
+./gogrep.go:42: "hits" escapes to heap
+./gogrep.go:21: os.Args[0] escapes to heap
+./gogrep.go:22: "Usage:" escapes to heap
+./gogrep.go:24: "Flags:" escapes to heap
+./gogrep.go:37: main ... argument does not escape
+./gogrep.go:40: main ... argument does not escape
+./gogrep.go:42: main ... argument does not escape
+./gogrep.go:21: main.func1 ... argument does not escape
+./gogrep.go:22: main.func1 ... argument does not escape
+./gogrep.go:24: main.func1 ... argument does not escape

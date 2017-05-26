@@ -1,0 +1,22 @@
+BenchmarkFib-4   	   30000	     49851 ns/op
+BenchmarkFib-4   	   30000	     49913 ns/op
+BenchmarkFib-4   	   30000	     49334 ns/op
+BenchmarkFib-4   	   30000	     49822 ns/op
+BenchmarkFib-4   	   30000	     50959 ns/op
+BenchmarkFib-4   	   30000	     49846 ns/op
+BenchmarkFib-4   	   30000	     49336 ns/op
+BenchmarkFib-4   	   30000	     54121 ns/op
+BenchmarkFib-4   	   30000	     57339 ns/op
+BenchmarkFib-4   	   30000	     59318 ns/op
+BenchmarkFib-4   	   30000	     59458 ns/op
+BenchmarkFib-4   	   30000	     50001 ns/op
+BenchmarkFib-4   	   30000	     48994 ns/op
+BenchmarkFib-4   	   30000	     50109 ns/op
+BenchmarkFib-4   	   30000	     50474 ns/op
+BenchmarkFib-4   	   30000	     50279 ns/op
+BenchmarkFib-4   	   30000	     49293 ns/op
+BenchmarkFib-4   	   30000	     49442 ns/op
+BenchmarkFib-4   	   30000	     49561 ns/op
+BenchmarkFib-4   	   30000	     50756 ns/op
+PASS
+ok  	github.com/gophertrain/courses/raise3/profbench/includes/fib	41.405s
