@@ -66,11 +66,11 @@ You should see something like:
 
 Now that you have a Go development environment set up, download the course material for this class:
 
-	go get -u github.com/gophertrain/material
+	go get -u github.com/bketelsen/fourday
 
 * Test your setup
 
-	cd $GOPATH/src/github.com/gophertrain/material/gettingstarted/exercises/hello
+	cd $GOPATH/src/github.com/bketelsen/fourday/gettingstarted/exercises/hello
 	go run main.go
 
 You should see:
