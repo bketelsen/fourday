@@ -1,24 +1,30 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
 func main() {
 
-	//	var mu sync.Mutex
-	c := make(chan bool)
+	var mu sync.Mutex
 	m := make(map[int]string)
-	for i := 0; i < 1000; i++ {
+	var wg sync.WaitGroup
+	for i := 0; i < 10; i++ {
+		i := i
+		wg.Add(1)
 		go func() {
-			//		mu.Lock()
+			mu.Lock()
 			m[i] = "a" // First conflicting access.
-			//		mu.Unlock()
-			c <- true
+			mu.Unlock()
+			wg.Done()
 		}()
 	}
-	//	mu.Lock()
+
+	mu.Lock()
 	m[2] = "b" // Second conflicting access.
-	//	mu.Unlock()
-	<-c
+	mu.Unlock()
+	wg.Wait()
 	for k, v := range m {
 		fmt.Println(k, v)
 	}

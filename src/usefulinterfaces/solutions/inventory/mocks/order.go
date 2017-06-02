@@ -3,7 +3,8 @@ package mocks
 import (
 	"errors"
 	"sync"
-	"usefulinterfaces/solutions/inventory"
+
+	"github.com/gophertrain/material/usefulinterfaces/solutions/inventory"
 )
 
 var _ inventory.OrderStorage = (*OrderMock)(nil)

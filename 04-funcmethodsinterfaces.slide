@@ -14,14 +14,14 @@ Functions have a name, optional input parameters, and optional return values.
 
 - Function Examples
 
-	cd $GOPATH/src/github.com/gophertrain/material/funcmethodsinterfaces/demos/funcs
+	cd $GOPATH/src/github.com/bketelsen/fourday/funcmethodsinterfaces/demos/funcs
 	go run main.go
 
 Functions are first-class types in Go. You can assign a function to a variable, you can pass functions as parameters.
 
 - Function Values
 
-	cd $GOPATH/src/github.com/gophertrain/material/funcmethodsinterfaces/demos/funcvalues
+	cd $GOPATH/src/github.com/bketelsen/fourday/funcmethodsinterfaces/demos/funcvalues
 	go run main.go
 
 * Methods
@@ -42,7 +42,7 @@ Methods can be declared on any named type. Use a pointer receiver when you want 
 
 - Method Example
 
-	cd $GOPATH/src/github.com/gophertrain/material/funcmethodsinterfaces/demos/method
+	cd $GOPATH/src/github.com/bketelsen/fourday/funcmethodsinterfaces/demos/method
 	go run main.go
 
 
@@ -50,9 +50,9 @@ Methods are First Class Citizens in Go
 
 That means you can create variables of type method, assign to them, and operate on those variables.
 
-- First Class Methods 
+- First Class Methods
 
-	cd $GOPATH/src/github.com/gophertrain/material/funcmethodsinterfaces/demos/firstmethod
+	cd $GOPATH/src/github.com/bketelsen/fourday/funcmethodsinterfaces/demos/firstmethod
 	go run main.go
 
 * Interfaces
@@ -98,7 +98,7 @@ By these patterns, you can see that interfaces are intended to represent a small
 
 - Interface Example
 
-	cd $GOPATH/src/github.com/gophertrain/material/funcmethodsinterfaces/demos/interfaces
+	cd $GOPATH/src/github.com/bketelsen/fourday/funcmethodsinterfaces/demos/interfaces
 	go run main.go
 
 * The Empty Interface
@@ -111,7 +111,7 @@ In Go we use the empty interface to represent "anything".
 
 - Empty Interface Example
 
-	cd $GOPATH/src/github.com/gophertrain/material/funcmethodsinterfaces/demos/empty
+	cd $GOPATH/src/github.com/bketelsen/fourday/funcmethodsinterfaces/demos/empty
 	go run main.go
 
 * Type Assertions
@@ -120,14 +120,14 @@ That's pretty powerful. You can pass any type around without losing the type saf
 
 - Type Assertion Example
 
-	cd $GOPATH/src/github.com/gophertrain/material/funcmethodsinterfaces/demos/assert
+	cd $GOPATH/src/github.com/bketelsen/fourday/funcmethodsinterfaces/demos/assert
 	go run main.go
 
 * Exercise
 
 Fix the last example to recognize and print the float value.
 
-	cd $GOPATH/src/github.com/gophertrain/material/funcmethodsinterfaces/exercises/assert
+	cd $GOPATH/src/github.com/bketelsen/fourday/funcmethodsinterfaces/exercises/assert
 	go run main.go
 
 

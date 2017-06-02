@@ -1,2 +1,0 @@
-benchmark            old ns/op     new ns/op     delta
-BenchmarkWrite-8     1949          2041          +4.72%

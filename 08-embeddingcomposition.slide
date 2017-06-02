@@ -10,7 +10,7 @@ Go doesn't do the typical Object Oriented inheritance. Instead Go lets you "borr
 
 - Composition
 
-	cd $GOPATH/src/github.com/gophertrain/material/embeddingcomposition/demos/embedding/
+	cd $GOPATH/src/github.com/bketelsen/fourday/embeddingcomposition/demos/embedding/
 	go run main.go
 
 * Composition
@@ -19,7 +19,7 @@ Composition works with Interfaces too:
 
 - Embedded Types Interface Example
 
-	cd $GOPATH/src/github.com/gophertrain/material/embeddingcomposition/demos/interfaces/
+	cd $GOPATH/src/github.com/bketelsen/fourday/embeddingcomposition/demos/interfaces/
 	go run main.go
 
 
@@ -29,7 +29,7 @@ Put composition, interfaces and embedding together to get a powerful abstraction
 
 - Composition, Interfaces, Embedding Example
 
-	cd $GOPATH/src/github.com/gophertrain/material/embeddingcomposition/demos/both/
+	cd $GOPATH/src/github.com/bketelsen/fourday/embeddingcomposition/demos/both/
 	go run main.go
 
 * Important
@@ -54,7 +54,7 @@ We create behaviors and apply them to types:
 
 - Behaviors
 
-	cd $GOPATH/src/github.com/gophertrain/material/embeddingcomposition/demos/behaviors/
+	cd $GOPATH/src/github.com/bketelsen/fourday/embeddingcomposition/demos/behaviors/
 	go run main.go
 
 
@@ -65,5 +65,5 @@ Modify the *behaviors* demo to add another type of transportation, implementing 
 
 - Behaviors
 
-	cd $GOPATH/src/github.com/gophertrain/material/embeddingcomposition/exercises/behaviors/
+	cd $GOPATH/src/github.com/bketelsen/fourday/embeddingcomposition/exercises/behaviors/
 	go run main.go

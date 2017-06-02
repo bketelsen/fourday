@@ -34,7 +34,7 @@ Why?
 
 - Cancellation
 
-	cd $GOPATH/src/github.com/gophertrain/material/contexts/demos/cancellation/
+	cd $GOPATH/src/github.com/bketelsen/fourday/contexts/demos/cancellation/
 	go run main.go
 
 
@@ -53,17 +53,17 @@ What will be the result?
 * Cancellation BUG
 
 Deadlock! (forced by changing 10k to just 10)
-	
+
 	..........fatal error: all goroutines are asleep - deadlock!
 	goroutine 1 [select]:
 	main.Random(0x111480, 0xc420084000, 0x96, 0xa, 0x0, 0x0, 0x0)
-	/Users/bketelsen/src/github.com/gophertrain/modules/src/contexts/demos/contexts/cancellation/main.go:45 +0x308
+	/Users/bketelsen/src/github.com/bketelsen/modules/src/contexts/demos/contexts/cancellation/main.go:45 +0x308
 	main.main()
-	/Users/bketelsen/src/github.com/gophertrain/modules/src/contexts/demos/contexts/cancellation/main.go:18 +0x4f
+	/Users/bketelsen/src/github.com/bketelsen/modules/src/contexts/demos/contexts/cancellation/main.go:18 +0x4f
 
 * Deadline
 
-You can fix this by providing a deadline.  Deadlines are propagated through the call chain, and are absolute.  A deadline is a fixed point in time.  
+You can fix this by providing a deadline.  Deadlines are propagated through the call chain, and are absolute.  A deadline is a fixed point in time.
 
 	When time(X) arrives, call the cancelFunc
 
@@ -71,14 +71,14 @@ You can fix this by providing a deadline.  Deadlines are propagated through the 
 
 - Deadline Walkthrough
 
-	cd $GOPATH/src/github.com/gophertrain/material/contexts/demos/deadline/
+	cd $GOPATH/src/github.com/bketelsen/fourday/contexts/demos/deadline/
 	go run main.go
 
 * Timeout
 
 - Deadline Walkthrough
 
-	cd $GOPATH/src/github.com/gophertrain/material/contexts/demos/timeouts/
+	cd $GOPATH/src/github.com/bketelsen/fourday/contexts/demos/timeouts/
 	go run main.go
 
 * Timeout vs. Deadline
@@ -93,7 +93,7 @@ Use the one that feels comfortable to you.
 
 * Exercise
 
-	cd $GOPATH/src/github.com/gophertrain/material/contexts/demos
+	cd $GOPATH/src/github.com/bketelsen/fourday/contexts/demos
 
 Exercise:
 	Open each of the demos in the contexts directory.
@@ -129,7 +129,7 @@ Now keys are scoped to the package.  Even though the "value" of the key is an in
 
 - Context RPC
 
-	cd $GOPATH/src/github.com/gophertrain/material/contexts/exercises/contextrpc/
+	cd $GOPATH/src/github.com/bketelsen/fourday/contexts/exercises/contextrpc/
 	go run main.go
 
 

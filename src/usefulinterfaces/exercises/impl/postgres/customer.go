@@ -1,9 +1,12 @@
 package postgres
 
-import "usefulinterfaces/exercises/impl"
+import "github.com/gophertrain/modules/usefulinterfaces/includes/impl"
 
-type CustomerService struct{}
+// CustomerService implements the CustomerGetter interface
+type CustomerService struct {
+}
 
+// Get returns a customer
 func (c *CustomerService) Get(id int) (*impl.Customer, error) {
 	panic("not implemented")
 }

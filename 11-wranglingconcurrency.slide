@@ -60,14 +60,14 @@ Quick fix: Send in a goroutine
 
 Not terribly practical, but proves the point of buffers.  A buffered channel can accept up to BUFFER SIZE writes before blocking, even when there is no receiver ready.
 
-* Channel Refresher 
+* Channel Refresher
 
 *Every* problem I've ever had with concurrency in Go boils down to those two concepts.
 
 - Unbuffered channels block until both sides are ready
 - Buffered channels block after buffer is full
 
-* Concurrency 
+* Concurrency
 
 Go's concurrency revolves around goroutines, either with or without channels.  Without channels there is no communication.  With channels there can be communication of both values and state.
 
@@ -192,11 +192,11 @@ Fortunately, Go has built-in race detection tools.  The `go` command has a `-rac
 
 * Race Example
 
-	cd $GOPATH/src/github.com/gophertrain/material/wranglingconcurrency/demos/race/
+	cd $GOPATH/src/github.com/bketelsen/fourday/wranglingconcurrency/demos/race/
 
 * Race Exercise
 
-Run the race example in `src/github.com/gophertrain/material/wranglingconcurrency/demos/race/`
+Run the race example in `src/github.com/bketelsen/fourday/wranglingconcurrency/demos/race/`
 
 	go run main.go
 
@@ -212,17 +212,17 @@ What results do you get?
 
 * Race Exercise - Individual Exercise
 
-Fix the race example in `src/github.com/gophertrain/material/wranglingconcurrency/exercises/race/` using tools you have learned in this module.  Test it by running with the `-race` flag.
+Fix the race example in `src/github.com/bketelsen/fourday/wranglingconcurrency/exercises/race/` using tools you have learned in this module.  Test it by running with the `-race` flag.
 
 	Never ship a binary built with `-race`.
 	It will use many times more memory and be significantly slower.
 
 * Conclusion
 
-Go's concurrency features are among the easiest to use in any programming language.  With great power comes great responsibility.  
+Go's concurrency features are among the easiest to use in any programming language.  With great power comes great responsibility.
 
 - Learn Channel behavior.  All of it.
 - Use sync.WaitGroup and sync.ErrGroup to make your life easier
 - Use mutexes for simple protection
-- Use the race detector locally when you build and test your code. (But not in the final binary) 
+- Use the race detector locally when you build and test your code. (But not in the final binary)
 - Add -race to your `go test` scripts, especially in your CI pipeline.

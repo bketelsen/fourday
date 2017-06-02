@@ -1,8 +1,9 @@
 package transport
 
 import (
-	"inventory"
 	"net"
+
+	"github.com/gophertrain/material/usefulinterfaces/exercises/inventory"
 )
 
 type InventoryTransporter interface {

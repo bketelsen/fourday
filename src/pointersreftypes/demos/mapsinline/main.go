@@ -7,10 +7,7 @@ import "fmt"
 func main() {
 	// Declare and make a map uses a slice of users as the key.
 	// This allocates an empty map.
-	grades := map[string]int{
-		"susan": 100,
-		"bob":   89,
-	}
+	grades := map[string]int{"susan": 100, "bob": 89}
 
 	fmt.Println("Map Values")
 	fmt.Println("**********")

@@ -58,7 +58,7 @@ Our fictional inventory application has two data sources, a PostgreSQL database 
 
 Suppliers, Products, and Orders are stored in PostgreSQL, but the interactions with the supplier are done through the supplier's HTTP API.
 
-That means we have two dependencies which should be in their own packages: 
+That means we have two dependencies which should be in their own packages:
 
 - postgres
 - acme
@@ -75,7 +75,7 @@ The *acme* package will have an implementation of the domain interface for inter
 For compatibility with other systems, the inventory application will offer consumers of the data two choices in network transport:
 
 - HTTP/REST API
-- net/rpc calls 
+- net/rpc calls
 
 Therefore we'll have a package *transport* containing an *rpc* package and an *http* package.
 
@@ -95,24 +95,24 @@ PRO TIP:
 	impl 's *Source' golang.org/x/oauth2.TokenSource > mocks/token.go
 
 
-To make it easy to isolate and test each individual package you should create mock implementations of each Interface you define in the domain package.  Keep all your mock implementations in a *mocks* package in the root of your application directory. 
+To make it easy to isolate and test each individual package you should create mock implementations of each Interface you define in the domain package.  Keep all your mock implementations in a *mocks* package in the root of your application directory.
 
 *impl* requires that the package with the interfaces can compile.  Make sure you have a compiling package before using it.
 
 * Practical Interfaces - Exercise 1
 
-In the *$GOPATH/src/github.com/gophertrain/material/usefulinterfaces/exercises* directory there's a folder called *impl*
+In the *$GOPATH/src/github.com/bketelsen/fourday/usefulinterfaces/exercises* directory there's a folder called *impl*
 
 	cd impl
 	cat interface.go
 
 Now install the *impl* tool:
-	
+
 	go get github.com/josharian/impl
 
 Try it out:
 
-	$ impl 'c *CustomerService' github.com/gophertrain/material/usefulinterfaces/exercises/impl.CustomerGetter
+	$ impl 'c *CustomerService' github.com/bketelsen/fourday/usefulinterfaces/exercises/impl.CustomerGetter
 
 You should see output like this:
 
@@ -141,7 +141,7 @@ Now your code should compile.
 
 * Practical Interfaces - Example Application
 
-	$ cd $GOPATH/src/github.com/gophertrain/material/usefulinterfaces/demos/inventory
+	$ cd $GOPATH/src/github.com/bketelsen/fourday/usefulinterfaces/demos/inventory
 
 In the root package *inventory* there are three domain objects:
 
@@ -176,7 +176,7 @@ Similarly there's a *SupplierService* that represents the interactions over an e
 
 * Practical Interfaces
 
-The *Service* interface defines the external API of our application to its consumers.  
+The *Service* interface defines the external API of our application to its consumers.
 
 
 .code usefulinterfaces/demos/inventory/inventory.go /START OMIT/,/END OMIT/
@@ -188,7 +188,7 @@ We have customers who demand a REST style interface over HTTP, and we also have 
 It makes sense to create a new interface to represent the delivery of our service over any type of connection.  In the *transport* package, there's an interface just for this:
 
 
-.code usefulinterfaces/demos/inventory/transport/transporter.go 
+.code usefulinterfaces/demos/inventory/transport/transporter.go
 
 
 * Practical Interfaces
@@ -198,9 +198,9 @@ Now we can have transport specific implementations in packages under *transport*
 - *http*
 - *rpc*
 
-Let's browse through those two implementations quickly.  
+Let's browse through those two implementations quickly.
 
-Of note, they both implement the *transport.InventoryTransporter* interface, which *embeds* the *inventory.Service*.  
+Of note, they both implement the *transport.InventoryTransporter* interface, which *embeds* the *inventory.Service*.
 
 Now our *http* and *rest* implementations of the *transport.InventoryTransporter* interface are required to also implement the *inventory.Service* interface.
 
@@ -211,13 +211,13 @@ PROTIP:
 
 Prove that your type implements an interface at compile time with this declaration:
 
-`src/github.com/gophertrain/material/usefulinterfaces/demos/inventory/transport/http/rest.go`
+`src/github.com/bketelsen/fourday/usefulinterfaces/demos/inventory/transport/http/rest.go`
 
 .code usefulinterfaces/demos/inventory/transport/http/rest.go /START OMIT/,/END OMIT/
 
 This variable declaration assigns a concrete type *RESTService* to the interface it should implement, then discards the result.
 
-By doing this, your code won't compile if the *RESTService* doesn't implement the *transport.InventoryTransporter* interface. 
+By doing this, your code won't compile if the *RESTService* doesn't implement the *transport.InventoryTransporter* interface.
 
 - Type Safety -- even when using Interfaces for abstraction
 
@@ -227,7 +227,7 @@ By doing this, your code won't compile if the *RESTService* doesn't implement th
 
 Now with interfaces all defined and (mostly) implemented, we can tie it all together in *main.go*
 
-`src/github.com/gophertrain/material/usefulinterfaces/demos/inventory/cmd/main.go`
+`src/github.com/bketelsen/fourday/usefulinterfaces/demos/inventory/cmd/main.go`
 
 Because the network services take interfaces, we can easily swap out storage drivers when changing databases, or more commonly, for testing.
 
@@ -293,7 +293,7 @@ Rob Pike's quote at the beginning of the module stated clearly that the larger t
 
 Interface Guidelines:
 
-- Start big 
+- Start big
 
 	Abstract out your dependencies first
 
@@ -310,11 +310,11 @@ Interface Guidelines:
 
 * Exercise
 
-*src/github.com/gophertrain/material/usefulinterfaces/exercises/inventory* contains a *mocks* folder.
+*src/github.com/bketelsen/fourday/usefulinterfaces/exercises/inventory* contains a *mocks* folder.
 
 Create a file in the mocks directory that implements the OrderStorage interface.
 
-- OrderStorage = mocks/orders.go 
+- OrderStorage = mocks/orders.go
 
 Hint: use a type that has a map[int]*DomainModel  (e.g. map[int]*inventory.Order)
 

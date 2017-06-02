@@ -1,14 +1,17 @@
 package rpc
 
 import (
-	"inventory"
-	"inventory/transport"
 	"net"
 	"net/rpc"
+
+	"github.com/gophertrain/material/usefulinterfaces/exercises/inventory"
+
+	"github.com/gophertrain/material/usefulinterfaces/exercises/inventory/transport"
 )
 
 // Compile-time proof of interface implementation
 var _ transport.InventoryTransporter = (*RPCService)(nil)
+var _ inventory.Service = (*RPCService)(nil)
 
 type RPCService struct {
 	orderStore      inventory.OrderStorage

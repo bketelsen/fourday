@@ -2,12 +2,13 @@ package main
 
 import (
 	"database/sql"
-	"inventory/acme"
-	"inventory/postgres"
-	"inventory/transport/http"
-	"inventory/transport/rpc"
 	"log"
 	"net"
+
+	"github.com/gophertrain/material/usefulinterfaces/exercises/inventory/acme"
+	"github.com/gophertrain/material/usefulinterfaces/exercises/inventory/postgres"
+	"github.com/gophertrain/material/usefulinterfaces/exercises/inventory/transport/http"
+	"github.com/gophertrain/material/usefulinterfaces/exercises/inventory/transport/rpc"
 )
 
 func main() {

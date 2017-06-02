@@ -19,5 +19,7 @@ func main() {
 	// Exercise:
 	// modify this example to iterate over the array using a range statement,
 	// and print the value of the array element multiplied by 2.
-	fmt.Println(numbers)
+	for _, val := range numbers {
+		fmt.Println(val * 2)
+	}
 }

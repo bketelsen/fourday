@@ -63,7 +63,7 @@ Tools like [[https://godoc.org/rsc.io/benchstat][rsc.io/benchstat]] are useful f
 DEMO: Improve `Fib`
 
 	% go test -bench=. -count=20 > new.txt
-	% benchstat old.txt new.txt                                                             
+	% benchstat old.txt new.txt
 	name   old time/op  new time/op  delta
 	Fib-4   378ns ± 0%   237ns ± 0%  -37.30%  (p=0.000 n=14+16)
 
@@ -107,7 +107,7 @@ Use b.ResetTimer() after doing setup so it won't be counted:
 	}
 
 - applies to any setup that needs to be done that you don't want to benchmark
-	
+
 
 * Compiler flags
 
@@ -124,7 +124,7 @@ Showing the assembly output of a package:
 
 * Performance measurement and profiling
 
-The best way to make your application faster is by improving inefficient code.  But how can you tell which code is inefficient? 
+The best way to make your application faster is by improving inefficient code.  But how can you tell which code is inefficient?
 
 You've got to measure it!  Go has you covered with the built-in `pprof` toolset.
 
@@ -141,7 +141,7 @@ It comes in two parts:
 - `runtime/pprof` package built into every Go program
 - `go`tool`pprof` for investigating profiles.
 
-pprof supports several types of profiling, we'll discuss three of these today: 
+pprof supports several types of profiling, we'll discuss three of these today:
 
 - CPU profiling.
 - Memory profiling.
@@ -149,7 +149,7 @@ pprof supports several types of profiling, we'll discuss three of these today:
 
 * CPU profiling
 
-CPU profiling is the most common type of profile, and the most obvious. 
+CPU profiling is the most common type of profile, and the most obvious.
 
 When CPU profiling is enabled the runtime will interrupt itself every 10ms and record the stack trace of the currently running goroutines.
 
@@ -170,7 +170,7 @@ Because of memory profiling is sample based and because it tracks _allocations_ 
 
 * Block profiling
 
-Block profiling is quite unique. 
+Block profiling is quite unique.
 
 A block profile is similar to a CPU profile, but it records the amount of time a goroutine spent waiting for a shared resource.
 
@@ -250,7 +250,7 @@ A better way to understand your profile is to visualise it.
 
 Opens a web page with a graphical display of the profile.
 
-.link profbench/images/pprof003.svg 
+.link profbench/images/pprof003.svg
 
 I find this method to be superior to the text mode, I strongly recommend you try it.
 
@@ -259,7 +259,7 @@ pprof also supports these modes in a non interactive form with flags like `-svg`
 .link http://blog.golang.org/profiling-go-programs Further reading: Profiling Go programs
 .link https://software.intel.com/en-us/blogs/2014/05/10/debugging-performance-issues-in-go-programs Further reading: Debugging performance issues in Go programs
 
-* Using pprof (cont.) 
+* Using pprof (cont.)
 
 Let's cover the other two profile types.
 
@@ -280,7 +280,7 @@ Here is a visualizaton of a block profile:
     % go test -blockprofile block.out -blockprofilerate 1 -bench=.
     % go tool pprof -svg gogrep.test block.out > block.svg
 
-.link profbench/includes/gogrep/block.svg 
+.link profbench/includes/gogrep/block.svg
 
 * How pprof works
 
@@ -295,7 +295,7 @@ To make it easier to profile your code you should use a higher level interface.
 
 The `testing` package has built in support for generating CPU, memory, and block profiles.
 
-- `-cpuprofile=$FILE` writes a CPU profile to `$FILE`. 
+- `-cpuprofile=$FILE` writes a CPU profile to `$FILE`.
 - `-memprofile=$FILE`, writes a memory profile to `$FILE`, `-memprofilerate=N` adjusts the profile rate to `1/N`.
 - `-blockprofile=$FILE`, writes a block profile to `$FILE`.
 
@@ -439,7 +439,7 @@ Viewing the trace:
         2016/08/13 17:01:06 Opening browser
 
 DEMO:
-	cd $GOPATH/src/github.com/gophertrain/material/profbench/demos/gogreptrace
+	cd $GOPATH/src/github.com/bketelsen/fourday/profbench/demos/gogreptrace
         go tool trace trace.out
 
 Bonus: [[https://github.com/pkg/profile/releases/tag/v1.2.0][`github.com/pkg/profile`]] supports generating trace profiles.
@@ -450,7 +450,7 @@ Bonus: [[https://github.com/pkg/profile/releases/tag/v1.2.0][`github.com/pkg/pro
 
 Profile gogrep using your choice:
 
-	cd $GOPATH/src/github.com/gophertrain/material/profbench/exercises/gogrep
+	cd $GOPATH/src/github.com/bketelsen/fourday/profbench/exercises/gogrep
 
 
 - pprof

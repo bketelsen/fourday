@@ -16,7 +16,7 @@ func main() {
 	inspectSlice(sl)
 
 	// Create a slice with a length of 5 elements and a capacity of 8.
-	slice1 := make([]string, 5, 8)
+	slice1 := make([]string, 5, 5)
 	slice1[0] = "Apple"
 	slice1[1] = "Orange"
 	slice1[2] = "Banana"
@@ -49,9 +49,23 @@ func main() {
 
 	slice2 = append(slice2, "Kiwi")
 	slice2 = append(slice2, "Lychee")
+	slice2 = append(slice2, "extrathing")
+	slice2 = append(slice2, "extrathing2")
 	inspectSlice(slice2)
 	inspectSlice(slice1)
 
+	fmt.Println("in class")
+	fmt.Println("*************************")
+	slice1 = append(slice1, "1extrathing")
+	slice1 = append(slice1, "1extrathing2")
+
+	inspectSlice(slice2)
+	inspectSlice(slice1)
+	slice1[3] = "SURPRISE"
+
+	inspectSlice(slice2)
+	inspectSlice(slice1)
+	return
 	// Another slice of slice1. Showing index shortcuts
 	// [index:] takes everything from index to end
 	// Don't forget that slices and arrays are 0 indexed!

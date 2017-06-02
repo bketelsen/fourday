@@ -10,7 +10,7 @@ Arrays have a fixed length and fixed data type.
 
 - Array Example
 
-	cd $GOPATH/src/github.com/gophertrain/material/pointersreftypes/demos/array
+	cd $GOPATH/src/github.com/bketelsen/fourday/pointersreftypes/demos/array
 	go run main.go
 
 
@@ -20,7 +20,7 @@ Iterate over the array using a for loop
 
 - Iterate with For
 
-	cd $GOPATH/src/github.com/gophertrain/material/pointersreftypes/demos/array
+	cd $GOPATH/src/github.com/bketelsen/fourday/pointersreftypes/demos/array
 	go run main.go
 
 
@@ -32,16 +32,16 @@ You can also iterate over any collection in Go using the range statement. Range 
 
 - Iterate with Range
 
-	cd $GOPATH/src/github.com/gophertrain/material/pointersreftypes/demos/array
+	cd $GOPATH/src/github.com/bketelsen/fourday/pointersreftypes/demos/array
 	go run main.go
 
 Range is very powerful, you'll use it often.
 
-* Exercise 
+* Exercise
 
 modify this example to iterate over the array using a range statement, and print the value of the array multiplied by 2.
 
-	cd $GOPATH/src/github.com/gophertrain/material/pointersreftypes/exercises/range
+	cd $GOPATH/src/github.com/bketelsen/fourday/pointersreftypes/exercises/range
 
 hint: do the multiplication inside the fmt.Println() function.
 
@@ -52,9 +52,9 @@ An array has a fixed size. A slice, on the other hand, is a dynamically-sized, f
 
 Unless you know that your list will contain a finite and fixed set of elements, you'll almost always use a slice when dealing with data.
 
-- Slice Examples 
+- Slice Examples
 
-	cd $GOPATH/src/github.com/gophertrain/material/pointersreftypes/demos/slice
+	cd $GOPATH/src/github.com/bketelsen/fourday/pointersreftypes/demos/slice
 	go run main.go
 
 
@@ -77,7 +77,7 @@ We've shown using append to add values to a slice but you can also declare the e
 
 - Slice Inline Declaration
 
-	cd $GOPATH/src/github.com/gophertrain/material/pointersreftypes/demos/slice
+	cd $GOPATH/src/github.com/bketelsen/fourday/pointersreftypes/demos/slice
 	go run main.go
 
 
@@ -87,9 +87,9 @@ Strings are Slices of Bytes
 
 A string is just a slice of bytes. Go has built-in support for UTF-8, and strong tools for working with non-ascii characters. While ASCII characters all take up only a single byte UTF-8 characters (or Runes) may be up to 4 bytes. Go allows you to easily handle multi-byte runes.
 
-- Rune Example 
+- Rune Example
 
-	cd $GOPATH/src/github.com/gophertrain/material/pointersreftypes/demos/runes
+	cd $GOPATH/src/github.com/bketelsen/fourday/pointersreftypes/demos/runes
 	go run main.go
 
 * Maps
@@ -100,9 +100,9 @@ Maps must be initialized before they can be used.
 
 Initialize a map with the make() function.
 
-- Map Example 
+- Map Example
 
-	cd $GOPATH/src/github.com/gophertrain/material/pointersreftypes/demos/maps
+	cd $GOPATH/src/github.com/bketelsen/fourday/pointersreftypes/demos/maps
 	go run main.go
 
 
@@ -112,7 +112,7 @@ Map keys must define the "==" and "!=" operators. therefore you can't use functi
 
 - Maps can be declared inline too:
 
-	cd $GOPATH/src/github.com/gophertrain/material/pointersreftypes/demos/mapsinline
+	cd $GOPATH/src/github.com/bketelsen/fourday/pointersreftypes/demos/mapsinline
 	go run main.go
 
 * Map Concurrency
@@ -127,7 +127,7 @@ Go lets you pass function parameters by value or by reference. You will generall
 
 - Pass by Value Example
 
-	cd $GOPATH/src/github.com/gophertrain/material/pointersreftypes/demos/passbyval
+	cd $GOPATH/src/github.com/bketelsen/fourday/pointersreftypes/demos/passbyval
 	go run main.go
 
 Notice that we didn't modify the value that was passed in, we created a new integer and returned that as the result.
@@ -136,7 +136,7 @@ If you want to operate on a value and have it modified during the operation, pas
 
 - Pass by Reference Example
 
-	cd $GOPATH/src/github.com/gophertrain/material/pointersreftypes/demos/passbyref
+	cd $GOPATH/src/github.com/bketelsen/fourday/pointersreftypes/demos/passbyref
 	go run main.go
 
 * Pointer Dereferencing

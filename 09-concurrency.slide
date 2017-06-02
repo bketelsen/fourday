@@ -18,7 +18,7 @@ To create a goroutine, simply prepend the "go" keyword before a function call.
 
 - Create Goroutine
 
-	cd $GOPATH/src/github.com/gophertrain/material/concurrency/demos/goroutine/
+	cd $GOPATH/src/github.com/bketelsen/fourday/concurrency/demos/goroutine/
 	go run main.go
 
 Why didn't that work?
@@ -37,7 +37,7 @@ WaitGroups are defined in the "sync" package in the standard library. They're a 
 
 - Waitgroup Example
 
-	cd $GOPATH/src/github.com/gophertrain/material/concurrency/demos/waitgroup/
+	cd $GOPATH/src/github.com/bketelsen/fourday/concurrency/demos/waitgroup/
 	go run main.go
 
 WaitGroups are also especially powerful when combined with closures (anonymous functions)
@@ -84,6 +84,6 @@ If no operations inside a select statement can process, the select will block. T
 Read Dave Cheney's article on some of the more interesting properties of channels.
 
 .link https://dave.cheney.net/2013/04/30/curious-channels Curious Channels
-	
+
 
 

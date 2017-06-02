@@ -11,7 +11,7 @@ func main() {
 	println("Before:", count, &count)
 
 	// Pass the "address of" the variable count.
-	increment(&count)
+	increment(count)
 
 	println("After: ", count, &count)
 }

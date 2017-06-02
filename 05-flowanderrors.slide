@@ -12,7 +12,7 @@ Go's if statements don't require parenthesis. They're easier to read, but you ca
 
 - If Examples
 
-	cd $GOPATH/src/github.com/gophertrain/material/flowanderrors/demos/if/
+	cd $GOPATH/src/github.com/bketelsen/fourday/flowanderrors/demos/if/
 	go run main.go
 
 
@@ -22,7 +22,7 @@ It's idiomatic in go to skip the else where possible:
 
 - Skipping Else
 
-	cd $GOPATH/src/github.com/gophertrain/material/flowanderrors/demos/skipelse/
+	cd $GOPATH/src/github.com/bketelsen/fourday/flowanderrors/demos/skipelse/
 	go run main.go
 
 * For
@@ -35,7 +35,7 @@ There is one looping construct, the "for" statement.
 
 - For
 
-	cd $GOPATH/src/github.com/gophertrain/material/flowanderrors/demos/for/
+	cd $GOPATH/src/github.com/bketelsen/fourday/flowanderrors/demos/for/
 	go run main.go
 
 
@@ -45,15 +45,15 @@ Go's switch statement is very powerful. Cases are evaluated top to bottom until 
 
 - Switch
 
-	cd $GOPATH/src/github.com/gophertrain/material/flowanderrors/demos/switch/
+	cd $GOPATH/src/github.com/bketelsen/fourday/flowanderrors/demos/switch/
 	go run main.go
 
 * Type Switching
 
-One of the more common uses of the switch statement is when determining the type of an interface{} value. 
+One of the more common uses of the switch statement is when determining the type of an interface{} value.
 
 - Type Switch
 
-	cd $GOPATH/src/github.com/gophertrain/material/flowanderrors/demos/typeswitch/
+	cd $GOPATH/src/github.com/bketelsen/fourday/flowanderrors/demos/typeswitch/
 	go run main.go
 

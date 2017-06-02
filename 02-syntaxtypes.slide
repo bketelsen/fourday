@@ -42,18 +42,18 @@ string and bool
 
 Without initialization
 
-	cd $GOPATH/src/github.com/gophertrain/material/syntaxtypes/demos/withoutinit
+	cd $GOPATH/src/github.com/bketelsen/fourday/syntaxtypes/demos/withoutinit
 	go run main.go
 
 
 With initialization, explicit type
 
-	cd $GOPATH/src/github.com/gophertrain/material/syntaxtypes/demos/explicit
+	cd $GOPATH/src/github.com/bketelsen/fourday/syntaxtypes/demos/explicit
 	go run main.go
 
 With initialization, implicit type
 
-	cd $GOPATH/src/github.com/gophertrain/material/syntaxtypes/demos/implicit
+	cd $GOPATH/src/github.com/bketelsen/fourday/syntaxtypes/demos/implicit
 	go run main.go
 
 All three produce an integer that is indistinguishable from the others. With the implicit declaration, the compiler determines the type of the variable at compile time (not run time).
@@ -62,43 +62,43 @@ All three produce an integer that is indistinguishable from the others. With the
 
 All builtin types have a zero value. Any allocated variable is usable even if it never has a value assigned.
 
-	cd $GOPATH/src/github.com/gophertrain/material/syntaxtypes/demos/zero
+	cd $GOPATH/src/github.com/bketelsen/fourday/syntaxtypes/demos/zero
 	go run main.go
 
 * Constants
 
 Constants are variables that can't be modified at run time.
 
-	cd $GOPATH/src/github.com/gophertrain/material/syntaxtypes/demos/constantstring
+	cd $GOPATH/src/github.com/bketelsen/fourday/syntaxtypes/demos/constantstring
 	go run main.go
 
-	cd $GOPATH/src/github.com/gophertrain/material/syntaxtypes/demos/constantnumber
+	cd $GOPATH/src/github.com/bketelsen/fourday/syntaxtypes/demos/constantnumber
 	go run main.go
 
 Modifying Constants Example - Fail!
 
-	cd $GOPATH/src/github.com/gophertrain/material/syntaxtypes/demos/modifyconst
+	cd $GOPATH/src/github.com/bketelsen/fourday/syntaxtypes/demos/modifyconst
 	go run main.go
 
 * Iota
 
 Sometimes you want to declare constants that follow a sequence:
 
-	cd $GOPATH/src/github.com/gophertrain/material/syntaxtypes/demos/sequence
+	cd $GOPATH/src/github.com/bketelsen/fourday/syntaxtypes/demos/sequence
 	go run main.go
 
 That's sort of ugly. Go gives us a compile time helper called iota that lets you skip the repetition:
 
 Sequence with Iota
 
-	cd $GOPATH/src/github.com/gophertrain/material/syntaxtypes/demos/iota
+	cd $GOPATH/src/github.com/bketelsen/fourday/syntaxtypes/demos/iota
 	go run main.go
 
 Notice the difference between the two versions? Iota always starts at 0.
 
 Skip the first value of iota
 
-	cd $GOPATH/src/github.com/gophertrain/material/syntaxtypes/demos/iotaskip
+	cd $GOPATH/src/github.com/bketelsen/fourday/syntaxtypes/demos/iotaskip
 	go run main.go
 
 * Structs
@@ -110,7 +110,7 @@ Structs are types with zero or more fields.
 
 Struct Example:
 
-	cd $GOPATH/src/github.com/gophertrain/material/syntaxtypes/demos/structs
+	cd $GOPATH/src/github.com/bketelsen/fourday/syntaxtypes/demos/structs
 	go run main.go
 
 Fields in a struct are called members. Reference them using a period and the field name.
@@ -118,7 +118,7 @@ Fields in a struct are called members. Reference them using a period and the fie
 
 * Code Organization
 
-Go code is organized in packages. A package represents all the files in a single directory on disk. One directory can contain only files from the same package. 
+Go code is organized in packages. A package represents all the files in a single directory on disk. One directory can contain only files from the same package.
 
 You've seen this already several times. Our examples so far have all used package "main" declared at the top of the file.
 
@@ -153,7 +153,7 @@ A GOPATH is a workspace for one or more Go projects.
 
 GOPATH is the root of the workspace and it contains three directories:
 
-.image syntaxtypes/images/gopath.png  400 600 
+.image syntaxtypes/images/gopath.png  400 600
 
 * Packages
 
@@ -190,7 +190,7 @@ If captainhook were a library instead of an executable, when it's compiled, the 
 
 * Packages and GOPATH
 
-The vast majority of developers will use one GOPATH, set it as an environment variable and forget about it. 
+The vast majority of developers will use one GOPATH, set it as an environment variable and forget about it.
 
 However, it's possible to have "clean rooms" for different sets of projects or even an individual project by simply creating a new GOPATH and setting the environment variable to that new location.
 

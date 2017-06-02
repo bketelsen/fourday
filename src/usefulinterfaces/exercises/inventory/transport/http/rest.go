@@ -1,10 +1,11 @@
 package http
 
 import (
-	"inventory"
-	"inventory/transport"
 	"net"
 	nh "net/http"
+
+	"github.com/gophertrain/material/usefulinterfaces/exercises/inventory"
+	"github.com/gophertrain/material/usefulinterfaces/exercises/inventory/transport"
 )
 
 // START OMIT
