@@ -79,7 +79,9 @@ func (Contractor) Unfasten(p NailPuller, nailSupply *int, b *Board) {
 }
 
 // ProcessBoards works against boards.
-func (c Contractor) ProcessBoards(dp NailDrivePuller, nailSupply *int, boards []Board) {
+func (c Contractor) ProcessBoards(dp NailDrivePuller,
+	nailSupply *int,
+	boards []Board) {
 	for i := range boards {
 		b := &boards[i]
 

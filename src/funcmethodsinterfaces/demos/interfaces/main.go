@@ -17,19 +17,31 @@ type speaker interface {
 	sayHello()
 }
 
+
+
 // english represents an english speaking person.
-type english struct{}
+type english struct{
+	name string
+
+}
 
 // sayHello implements the speaker interface.
-func (english) sayHello() {
-	fmt.Println("Hello World")
+func (e english) sayHello() {
+	fmt.Println("Hello ", e.name)
 }
 
 // chinese represents a chinese speaking person.
-type chinese struct{}
+type chinese struct{
+	morning bool
+}
 
 // sayHello implements the speaker interface.
-func (chinese) sayHello() {
+func (c chinese) sayHello() {
+	if c.morning {
+		fmt.Println("Good morning in Chinese")
+		return
+	}
+
 	fmt.Println("你好世界")
 }
 
@@ -41,18 +53,20 @@ func main() {
 	// Assign a value to the interface type variable and
 	// call the interface method.
 	var e english
+	e.name = "William"
 	sp = e
 	sp.sayHello()
 
 	// Assign a different value to the interface type
 	// variable and call the interface method.
 	var c chinese
+	c.morning = true
 	sp = c
 	sp.sayHello()
 
 	// Create new values and call the function.
-	sayHello(new(english))
-	sayHello(&chinese{})
+	sayHello(&english{name: "Godfrey"})
+	sayHello(&chinese{morning: false})
 
 	// The use of new() and the empty literal is there
 	// as a talking point about these options.
@@ -60,5 +74,6 @@ func main() {
 
 // SatHello abstracts speaking functionality.
 func sayHello(sp speaker) {
+
 	sp.sayHello()
 }

@@ -7,7 +7,7 @@ import (
 func main() {
 
 	fmt.Println("Integer:")
-	anything(5)
+	anything(5, "blue")
 
 	fmt.Println("String:")
 	anything("Gophers Rule")

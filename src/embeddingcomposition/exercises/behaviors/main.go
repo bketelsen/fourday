@@ -33,15 +33,29 @@ func (b *Boeing) Inventory() []string {
 	return b.CargoHold
 }
 
+type Bicycle struct {
+	basket []string
+}
+
+func (b *Bicycle) Stow(item string) {
+	b.basket= append(b.basket, item)
+}
+
+func (b *Bicycle) Inventory() []string {
+	return b.basket
+}
 func main() {
 	s := &Subaru{}
 	b := &Boeing{}
+	schwinn := &Bicycle{}
 
 	PutCargo(s, "spare tire")
 	PutCargo(b, "suitcase")
+	PutCargo(schwinn, "Toto")
 
 	GetInventory(s)
 	GetInventory(b)
+	GetInventory(schwinn)
 
 }
 

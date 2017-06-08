@@ -25,6 +25,7 @@ func main() {
 	}
 	req.Header.Set("Content-Type", "application/json")
 	client := new(http.Client)
+	//client.Timeout = 3*time.Seconds
 	resp, err := client.Do(req)
 	if err != nil {
 		log.Fatalf("Error in sending request to %s. %s", url, err)

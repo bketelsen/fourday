@@ -14,6 +14,7 @@ func main() {
 
 	fmt.Println("Float:")
 	assertions(3.14159)
+	assertions(&struct{}{})
 }
 
 func assertions(i interface{}) {

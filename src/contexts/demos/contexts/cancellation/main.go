@@ -15,7 +15,7 @@ type Result struct {
 func main() {
 	// launch 10k goroutines, trying to get random
 	// to return "150"
-	result := Random(context.Background(), 150, 10000)
+	result := Random(context.Background(), 150, 100)
 	if result.Err != nil {
 		fmt.Println("error:", result.Err)
 	}

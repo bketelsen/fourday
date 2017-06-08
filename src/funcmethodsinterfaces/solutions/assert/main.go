@@ -16,6 +16,7 @@ func main() {
 	assertions(3.14159)
 }
 
+
 func assertions(i interface{}) {
 
 	switch v := i.(type) {
@@ -30,3 +31,4 @@ func assertions(i interface{}) {
 	}
 
 }
+
