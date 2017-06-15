@@ -450,7 +450,7 @@ Bonus: [[https://github.com/pkg/profile/releases/tag/v1.2.0][`github.com/pkg/pro
 
 Profile gogrep using your choice:
 
-	cd $GOPATH/src/github.com/bketelsen/fourday/profbench/exercises/gogrep
+	cd $GOPATH/src/github.com/bketelsen/fourday/src/profbench/exercises/gogrep
 
 
 - pprof
