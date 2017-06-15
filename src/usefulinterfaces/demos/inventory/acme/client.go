@@ -1,6 +1,6 @@
 package acme
 
-import "inventory"
+import "usefulinterfaces/demos/inventory"
 
 // Compile-time proof of interface implementation
 var _ inventory.SupplierService = (*AcmeClientService)(nil)
